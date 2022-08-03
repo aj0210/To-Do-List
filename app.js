@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://abhi0210:abhi2000@cluster0.re3l9.mongodb.net/todolistDB", {useNewUrlParser: true});
+mongoose.connect("database link", {useNewUrlParser: true});
 
 const itemsSchema = {
   name: String
@@ -26,7 +26,7 @@ const item1 = new Item({
 });
 
 const item2 = new Item({
-  name: "Hit the + button to add a new item."
+  name: "Type your required item in below text area and hit the + button to add a new item."
 });
 
 const item3 = new Item({
@@ -127,6 +127,13 @@ app.post("/delete", function(req, res){
       }
     });
   }
+
+  app.post("/:newlist",function(req,res){
+
+    const newlist=req.body.nl
+
+    res.redirect("/"+newl)
+  })
 
 
 });
